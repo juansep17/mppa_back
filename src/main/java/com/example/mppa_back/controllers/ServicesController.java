@@ -19,4 +19,19 @@ public class ServicesController {
     public List<Services> list(){
         return servicesService.list();
     }
+
+    @GetMapping("/findById")
+    public Services findById(@RequestParam int id){
+        return servicesService.findById(id);
+    }
+
+    @PostMapping("/add")
+    public Services add(@RequestBody Services services){
+        return servicesService.add(services);
+    }
+
+    @PutMapping("/edit")
+    public Services edit(@RequestBody Services services){
+        return null;
+    }
 }
