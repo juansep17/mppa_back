@@ -28,7 +28,7 @@ public class ServicesImpl implements ServicesService {
 
     @Override
     public Services edit(Services services) throws ResourceNotFoundException {
-        return null;
+        return servicesRepository.save(services);
     }
 
     @Override
@@ -37,8 +37,8 @@ public class ServicesImpl implements ServicesService {
     }
 
     @Override
-    public void remove(Services services) throws ResourceNotFoundException {
-
+    public void remove(int id) throws ResourceNotFoundException {
+        servicesRepository.delete(id);
     }
 
 

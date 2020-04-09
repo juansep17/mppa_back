@@ -1,8 +1,10 @@
 package com.example.mppa_back.controllers;
 
 import com.example.mppa_back.entities.Services;
+import com.example.mppa_back.exception.ResourceNotFoundException;
 import com.example.mppa_back.services.ServicesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,8 +32,14 @@ public class ServicesController {
         return servicesService.add(services);
     }
 
+
     @PutMapping("/edit")
-    public Services edit(@RequestBody Services services){
-        return null;
+    public Services edit(@RequestParam Services services) throws ResourceNotFoundException {
+        return servicesService.edit(services);
     }
+
+    @DeleteMapping("/delete")
+    public void delete(@RequestParam int id) throws ResourceNotFoundException {
+        servicesService.remove(id);
+        }
 }

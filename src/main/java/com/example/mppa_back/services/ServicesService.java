@@ -16,5 +16,5 @@ public interface ServicesService {
 
     Services findById(int id);
 
-    void remove (Services services) throws ResourceNotFoundException;
+    void remove (int id) throws ResourceNotFoundException;
 }
